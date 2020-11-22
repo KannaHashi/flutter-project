@@ -8,7 +8,9 @@ class Add extends StatelessWidget {
       Icons.keyboard_arrow_down,
       color: Colors.black54,
     );
-    return Container(
+    return ListView(
+
+    children: [Container(
       child: Column(
         children: [
             TopContainer(
@@ -16,15 +18,11 @@ class Add extends StatelessWidget {
               width: width,
               child: Column(
                 children: <Widget>[
-                  MyBackButton(),
-                  SizedBox(
-                    height: 30,
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Create new task',
+                        'Hafalan Baru',
                         style: TextStyle(
                             fontSize: 30.0, fontWeight: FontWeight.w700),
                       ),
@@ -35,7 +33,7 @@ class Add extends StatelessWidget {
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      MyTextField(label: 'Title'),
+                      MyTextField(label: 'Nama Siswa'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -63,13 +61,31 @@ class Add extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                           child: MyTextField(
-                        label: 'Start Time',
+                        label: 'Surah Start',
                         icon: downwardIcon,
                       )),
                       SizedBox(width: 40),
                       Expanded(
                         child: MyTextField(
-                          label: 'End Time',
+                          label: 'Start Ayat',
+                          icon: downwardIcon,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                          child: MyTextField(
+                        label: 'End Surah',
+                        icon: downwardIcon,
+                      )),
+                      SizedBox(width: 40),
+                      Expanded(
+                        child: MyTextField(
+                          label: 'End Ayat',
                           icon: downwardIcon,
                         ),
                       ),
@@ -118,6 +134,7 @@ class Add extends StatelessWidget {
             ),
         ]
       ),
+    )]
     );
   }
 }

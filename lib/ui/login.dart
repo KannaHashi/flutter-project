@@ -1,8 +1,6 @@
 part of 'uis.dart';
 
 class Login extends StatefulWidget {
-  Login({Key key}) : super(key: key);
-
   @override
   _LoginState createState() => new _LoginState();
 }

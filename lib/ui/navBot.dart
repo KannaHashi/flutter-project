@@ -7,8 +7,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  PageController _pageController;
-
   int pages = 1;
   String name;
 
@@ -18,24 +16,33 @@ class _HomePageState extends State<HomePage> {
 
   Widget showPages = Home();
 
+  PageController pageController;
+
+  int currentIndex = 0;
+  
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
   // Rooting
 
-  Widget choosePages(int page){
-    switch(page){
-      case 0:
-        name = "Add";
-        return add;
-        break;
-      case 1:
-        name = "Besteam";
-        return home;
-        break;
-      case 2:
-        name = "Recent";
-        return history;
-        break;
-    }
-  }
+  // Widget choosePages(int page){
+  //   switch(page){
+  //     case 0:
+  //       name = "Add";
+  //       return add;
+  //       break;
+  //     case 1:
+  //       name = "Besteam";
+  //       return home;
+  //       break;
+  //     case 2:
+  //       name = "Recent";
+  //       return history;
+  //       break;
+  //   }
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,9 +103,18 @@ class _HomePageState extends State<HomePage> {
           ]
         )
       ),
-      body: ListView(
-        children: <Widget>[showPages],
-      ),
+      body: PageView(
+        controller: pageController,
+        children: <Widget>[
+          add,
+          home,
+          history
+        ],
+        onPageChanged: (int index) {
+          setState(() {
+            currentIndex = index;
+          });
+        }),
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         items: <Widget>[
@@ -111,10 +127,11 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
         animationDuration: Duration(milliseconds: 300),
-        index: pages,
+        index: currentIndex,
         onTap: (int tap){
+          pageController.animateToPage(tap, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
           setState(() {
-            showPages = choosePages(tap);
+            currentIndex = tap;
           });
         },
       ),
