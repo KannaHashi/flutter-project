@@ -7,6 +7,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  String name = 'Besteam';
+
   Text subheading(String title) {
     return Text(
       title,
@@ -168,7 +170,7 @@ class _HomeState extends State<Home> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            subheading('Active Projects'),
+                            subheading('Data'),
                             SizedBox(height: 5.0),
                           ],
                         ),
@@ -177,74 +179,6 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 ), 
-                // Container(
-                //   height: 30,
-                //   padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                //   decoration: BoxDecoration(
-                //     color: LightColors.kDarkYellow,
-                //     borderRadius: BorderRadius.only(
-                //       bottomRight: Radius.circular(20.0),
-                //       bottomLeft: Radius.circular(20.0),
-                //     )
-                //   ),
-                //   child: Row(
-                //     children: [
-                //       Column(
-                //         children: [
-                //           Text("Data Halaqoh", style: TextStyle(color: Colors.white))
-                //         ],
-                //       )
-                //     ],
-                //   ),
-                // ),
-                // Container(
-                //   padding: EdgeInsets.only(top: 40, right: 34, left: 34),
-                //   child: Column(
-                //     children: <Widget>[
-                //       Padding(
-                //         padding: EdgeInsets.only(top: 40, left: 20,bottom: 10,right: 20),
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //           children: <Widget>[
-                //             Container(
-                //               height: 100,
-                //               width: 100,
-                //               decoration: BoxDecoration(
-                //                   color: Colors.white,
-                //                   borderRadius: BorderRadius.circular(50.2),
-                //               ),
-                //               child: Padding(
-                //                 padding: EdgeInsets.all(8.0),
-                //                 child: Column(
-                //                   children: <Widget>[
-                //                     Icon(Icons.language,color: Colors.indigo[500],),
-                //                     Text('Total setoran', style: TextStyle(color: Colors.indigo[500]),)
-                //                   ],
-                //                 ),
-                //               ),
-                //             ),
-                //             Container(
-                //               height: 100,
-                //               width: 115,
-                //               decoration: BoxDecoration(
-                //                   color: Colors.indigo[500],
-                //                   borderRadius: BorderRadius.circular(5),
-                //               ),
-                //               child: Padding(
-                //                 padding: EdgeInsets.all(8.0),
-                //                 child: Column(children: <Widget>[
-                //                   Icon(Icons.minimize,color: Colors.white,),
-                //                   Text('Total Hutang', style: TextStyle(color: Colors.white),)
-                //                 ],
-                //                 ),
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // )
               ],
             ),
           ),

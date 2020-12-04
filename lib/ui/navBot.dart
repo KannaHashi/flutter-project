@@ -14,11 +14,11 @@ class _HomePageState extends State<HomePage> {
   final History history = History();
   final Home home = Home();
 
-  Widget showPages = Home();
+  String namestring = 'Besteam';
 
   PageController pageController;
 
-  int currentIndex = 0;
+  int currentIndex = 1;
   
   @override
   void initState() {
@@ -27,19 +27,19 @@ class _HomePageState extends State<HomePage> {
   }
   // Rooting
 
-  // Widget choosePages(int page){
+  // String choosePages(int page){
   //   switch(page){
   //     case 0:
   //       name = "Add";
-  //       return add;
+  //       return name;
   //       break;
   //     case 1:
   //       name = "Besteam";
-  //       return home;
+  //       return name;
   //       break;
   //     case 2:
   //       name = "Recent";
-  //       return history;
+  //       return name;
   //       break;
   //   }
   // }
@@ -52,10 +52,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Align(
               alignment: Alignment.center,
-              child: Text(
-                name??'Besteam',
-                style: TextStyle(color: Colors.white, fontFamily: "Bahnschrift"),
-              ),
+              child: currentIndex == 1 ? Text('Besteam') : currentIndex == 0 ? Text('Create New Hafalan Store') : currentIndex == 2 ? Text('History') : null,
             )
           ),
           actions: <Widget>[
@@ -110,9 +107,9 @@ class _HomePageState extends State<HomePage> {
           home,
           history
         ],
-        onPageChanged: (int index) {
+        onPageChanged: (int tap) {
           setState(() {
-            currentIndex = index;
+            currentIndex = tap;
           });
         }),
       backgroundColor: Colors.white,

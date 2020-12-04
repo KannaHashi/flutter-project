@@ -1,6 +1,9 @@
 part of 'uis.dart';
 
 class Add extends StatelessWidget {
+
+  String name = 'Create New Store Note';
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
