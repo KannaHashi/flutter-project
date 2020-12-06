@@ -102,5 +102,15 @@ class _List_siswaState extends State<List_siswa> {
       )
     );
   }
+  // Widget toggle() {
+  //   return FloatingActionButton(
+  //     backgroundColor: Colors.blueGrey[600],
+  //     onPressed: () {
+  //       Navigator.push(context, MaterialPageRoute(builder: (context) => Create_Siswa()));
+  //     },
+  //     tooltip: 'Toggle',
+  //     child: Icon(Icons.add)
+  //   );
+  // }
 }
 

@@ -22,7 +22,8 @@ import 'package:mailer/smtp_server/gmail.dart';
 // import 'package:flutter_project/ui/screens/create_new_task_page.dart';
 
 part 'navBot.dart';
-part 'add.dart';
+part 'create_hafalan.dart';
+part 'create_siswa.dart';
 part 'history.dart';
 part 'home.dart';
 part 'login.dart';

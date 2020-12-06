@@ -28,7 +28,12 @@ class _SetorState extends State<Setor> {
 
 
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff1f6f8b),
+        title: Text('Stored List'),
+      ),
+      body: Column(
         children: <Widget>[
           oneSiswa == null ?  Center(
               child: Align(
@@ -72,20 +77,11 @@ class _SetorState extends State<Setor> {
                                 color: Colors.greenAccent,
                               ),
                               Text('Absen Pulang : ' +
-                                  oneSiswa[0]['name'].toString()),
+                                  oneSiswa[0]['email'].toString()),
                             ],
                           ),
                         ],
-                      ),
-                      trailing: Column(
-                        children: <Widget>[
-                          Icon(
-                            Icons.check,
-                            color: Colors.green,
-                          ),
-                          Text("Tepat Waktu")
-                        ],
-                      ),
+                      ),                     
                       onTap: () {},
                     ),
                   ),
@@ -94,6 +90,6 @@ class _SetorState extends State<Setor> {
             ),
           ),
         ],
-      );
-  }
-}
+      ),
+    );
+}}

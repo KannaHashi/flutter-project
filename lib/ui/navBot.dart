@@ -112,6 +112,18 @@ class _HomePageState extends State<HomePage> {
             currentIndex = tap;
           });
         }),
+        floatingActionButton: new FloatingActionButton(
+        onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder:(context){
+                return Create_Siswa();
+              }
+            ));
+          }, 
+        tooltip: 'Increment',
+        child: new Icon(Icons.add),
+      ),
+
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         items: <Widget>[
