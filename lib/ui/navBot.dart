@@ -10,7 +10,7 @@ class _HomePageState extends State<HomePage> {
   int pages = 1;
   String name;
 
-  final Add  add = Add();
+  final List_siswa  list = List_siswa();
   final History history = History();
   final Home home = Home();
 
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   PageController pageController;
 
-  int currentIndex = 1;
+  int currentIndex = 0;
   
   @override
   void initState() {
@@ -52,59 +52,59 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Align(
               alignment: Alignment.center,
-              child: currentIndex == 1 ? Text('Besteam') : currentIndex == 0 ? Text('Create New Hafalan Store') : currentIndex == 2 ? Text('History') : null,
+              child: currentIndex == 1 ? Text('Students List') : currentIndex == 0 ? Text('Home') : currentIndex == 2 ? Text('History') : null,
             )
           ),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.more_vert), onPressed: null)
-          ],
+          // actions: <Widget>[
+          //   IconButton(icon: Icon(Icons.more_vert), onPressed: null)
+          // ],
           elevation: 0,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Besteam'),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey[700],
-                image: DecorationImage(
-                  image: AssetImage("gambar/haha.jpg"),
-                     fit: BoxFit.cover)
-              ),
-            ),
-            ListTile(
-              title: Text('Profile'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Tambah Setoran'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Murojaah'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('History'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            )
-          ]
-        )
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       DrawerHeader(
+      //         child: Text('Besteam'),
+      //         decoration: BoxDecoration(
+      //           color: Colors.blueGrey[700],
+      //           image: DecorationImage(
+      //             image: AssetImage("gambar/haha.jpg"),
+      //                fit: BoxFit.cover)
+      //         ),
+      //       ),
+      //       ListTile(
+      //         title: Text('Profile'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text('Tambah Setoran'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text('Murojaah'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         title: Text('History'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       )
+      //     ]
+      //   )
+      // ),
       body: PageView(
         controller: pageController,
         children: <Widget>[
-          add,
           home,
+          list,
           history
         ],
         onPageChanged: (int tap) {
@@ -115,8 +115,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         items: <Widget>[
-          Icon(Icons.emoji_people_outlined,color: Colors.white),
           Icon(Icons.home,color: Colors.white),
+          Icon(Icons.emoji_people_outlined,color: Colors.white),
           Icon(Icons.history,color: Colors.white),
         ],
         color: Colors.blueAccent,

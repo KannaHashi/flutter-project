@@ -131,6 +131,8 @@ class _HomeState extends State<Home> {
                               children: <Widget>[
                                 subheading('Recent Setoran'),
                                 RaisedButton(
+                                color: Colors.greenAccent,
+                                child: Text('Login', style: TextStyle(color: Colors.white),),
                                   onPressed: (){
                                     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                                 })

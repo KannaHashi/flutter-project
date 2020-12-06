@@ -1,6 +1,6 @@
 part of 'uis.dart';
 
-class Add extends StatelessWidget {
+class Create_Hafalan extends StatelessWidget {
 
   String name = 'Create New Store Note';
 
