@@ -51,13 +51,13 @@ sendMail() async {
       SmtpServer(domainSmtp, username: username, password: password, port: 587);
 
   final message = Message()
-    ..from = Address(username, 'BesTeam Company')
+    ..from = Address(username, 'SMK MADINATULQURAN')
     ..recipients.add('dulzfaker@gmail.com')
     //..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
     //..bccRecipients.add(Address('bccAddress@example.com'))
     ..subject = 'Laporan Setoran Siswa :: 😀 :: ${DateTime.now()}'
     ..text =
-        'Assalamualaikum Warahmatullahi Wabarakatuh.\n Anak Ibu/Bapak Tidak Pernah Setoran.\nSilahkan Dateng Ke Sekolah Sekarang!.';
+        'Assalamualaikum Warahmatullahi Wabarakatuh.\n Anak Ibu/Bapak tidak pernah setoran selama 3 bulan, Untuk itu diperkenankan kepada Wali ananda untuk datang ke sekolah.\n Syukron';
   // ..html = "<h1>Datang Kembali</h1>\n<p>Hey! Follow @ad_dulziz</p>";
 
   try {

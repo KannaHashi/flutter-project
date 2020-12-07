@@ -6,11 +6,12 @@ class MyTextField extends StatelessWidget {
   final int maxLines;
   final int minLines;
   final Icon icon;
-  MyTextField({this.label, this.maxLines = 1, this.minLines = 1, this.icon});
+  final controller;
+  MyTextField({this.label, this.maxLines = 1, this.minLines = 1, this.icon, this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       
       style: TextStyle(color: Colors.black87),
       minLines: minLines,

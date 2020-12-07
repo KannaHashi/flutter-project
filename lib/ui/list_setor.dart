@@ -31,7 +31,16 @@ class _SetorState extends State<Setor> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff1f6f8b),
-        title: Text('Stored List'),
+        title: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text('Detail Siswa',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )
+            )
+        ),
+        elevation: 0,
       ),
       body: Column(
         children: <Widget>[
@@ -40,56 +49,48 @@ class _SetorState extends State<Setor> {
                 alignment: Alignment.center,
               )
           ): Expanded (
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Card(
-                    elevation: 8,
-                    margin:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: ListTile(
-                      contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      title: Text(
-                        oneSiswa[0]['name'].toString(),
-                        style: TextStyle(fontWeight: FontWeight.bold),
+            child: ListView.builder(
+              itemCount: oneSiswa.length,
+              itemBuilder: (context, i){
+                return  Container(
+                  child: Column(
+                    children: <Widget>[
+                      Card(
+                        elevation: 8,
+                        margin:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        child: ListTile(
+                          contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          title: Text(
+                            oneSiswa[i]['name'],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,                            
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,                                
+                                children: <Widget>[
+                                  Text("alamat            : " + oneSiswa[i]['alamat'].toString() + "\nTanggal lahir : " + oneSiswa[i]['tanggal_lahir'].toString() + "\nemail              :" + oneSiswa[i]['email'].toString() + "\nno telepon     : " + oneSiswa[i]['no_telp'].toString()),  
+                                  // Text("TTl : " + oneSiswa[i]['tanggal_lahir'].toString()),                                   
+                                  // Text("email : " + oneSiswa[i]['email'].toString()),                                   
+                                  // Text("no telepon : " + oneSiswa[i]['no_telp'].toString()),                                   
+                                ],
+                              ),
+                            ],
+                          ),
+                          onTap: () {},
+                        ),
                       ),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.arrow_right,
-                                color: Colors.greenAccent,
-                              ),
-                              Expanded(
-                                  child: Text("Absen Hadir : " +
-                                      oneSiswa[0]
-                                      ['name']
-                                          .toString())),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.arrow_right,
-                                color: Colors.greenAccent,
-                              ),
-                              Text('Absen Pulang : ' +
-                                  oneSiswa[0]['email'].toString()),
-                            ],
-                          ),
-                        ],
-                      ),                     
-                      onTap: () {},
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                );
+              }
+            )
           ),
         ],
       ),
     );
-}}
+  }
+}

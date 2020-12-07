@@ -69,7 +69,7 @@ class _LoginState extends State<Login>
                           width: 250.0,
                           height: 191.0,
                           fit: BoxFit.fill,
-                          image: new AssetImage('gambar/login_logo.png')),
+                          image: new AssetImage('gambar/login_logo.jpg')),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
@@ -317,17 +317,18 @@ class _LoginState extends State<Login>
                     //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 42.0),
+                          vertical: 5.0, horizontal: 42.0),
                       child: Text(
-                        "LOGIN",
+                        "Login",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25.0,
+                            fontSize: 20.0,
                             fontFamily: "WorkSansBold"),
                       ),
                     ),
-                    onPressed: () =>
-                        showInSnackBar("Login button pressed")),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                    }),
               ),
             ],
           ),
@@ -580,17 +581,17 @@ class _LoginState extends State<Login>
                     //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 42.0),
+                          vertical: 5.0, horizontal: 42.0),
                       child: Text(
-                        "SIGN UP",
+                        "Register",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25.0,
+                            fontSize: 20.0,
                             fontFamily: "WorkSansBold"),
                       ),
                     ),
                     onPressed: () =>
-                        showInSnackBar("SignUp button pressed")),
+                        showInSnackBar("Berhasil Daftar, Silahkan login")),
               ),
             ],
           ),

@@ -1,8 +1,58 @@
 part of 'uis.dart';
 
-class Create_Hafalan extends StatelessWidget {
+class CreateHafalan extends StatefulWidget {
+  @override
+  _CreateHafalanState createState() => _CreateHafalanState();
+}
+  // String name = 'Create New Store Note';
 
-  String name = 'Create New Store Note';
+class _CreateHafalanState extends State<CreateHafalan> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController _siswaId = TextEditingController();
+  TextEditingController _suratAwal = TextEditingController();
+  TextEditingController _ayatAwal = TextEditingController();
+  TextEditingController _suratAkhir = TextEditingController();
+  TextEditingController _ayatAkhir = TextEditingController();
+  TextEditingController _keterangan = TextEditingController();
+  String msg;
+
+  void simpanData() {
+    createHafalan(_siswaId.text, _suratAwal.text, _ayatAwal.text,
+            _suratAkhir.text, _ayatAkhir.text, _keterangan.text)
+        .then((value) {
+      if (value == true) {
+        AlertDialog alertdialog = AlertDialog(
+          content: Container(
+            height: 100,
+            child: Column(
+              children: <Widget>[
+                Text("Hafalan Berhasil Ditambahkan"),
+                RaisedButton(
+                  child: Text("OK"),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],
+            ),
+          ),
+        );
+        showDialog(context: context, child: alertdialog);
+      } else {
+        AlertDialog alertdialog = AlertDialog(
+          content: Container(
+            height: 100,
+            child: Column(
+              children: <Widget>[
+                Text("Hafalan Gagal Ditambahkan"),
+                RaisedButton(
+                    child: Text("OK"), onPressed: () => Navigator.pop(context))
+              ],
+            ),
+          ),
+        );
+        showDialog(context: context, child: alertdialog);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +61,8 @@ class Create_Hafalan extends StatelessWidget {
       Icons.keyboard_arrow_down,
       color: Colors.black54,
     );
-    return ListView(
+    return Scaffold(
+      body:  ListView(
 
     children: [Container(
       child: Column(
@@ -36,19 +87,26 @@ class Create_Hafalan extends StatelessWidget {
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      MyTextField(label: 'Nama Siswa'),
+                      MyTextField(label: 'ID Siswa'),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Expanded(
+                              child: MyTextField(
+                            controller: _suratAwal,
+                            label: 'Surat Awal',
+                            icon: downwardIcon,
+                          )),
+                          SizedBox(width: 40),
+                          Expanded(
                             child: MyTextField(
-                              label: 'Date',
+                              controller: _suratAkhir,
+                              label: 'Surat Akhir',
                               icon: downwardIcon,
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ))
                 ],
@@ -59,36 +117,21 @@ class Create_Hafalan extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Expanded(
-                          child: MyTextField(
-                        label: 'Surah Start',
-                        icon: downwardIcon,
-                      )),
-                      SizedBox(width: 40),
-                      Expanded(
-                        child: MyTextField(
-                          label: 'Start Ayat',
-                          icon: downwardIcon,
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Expanded(
                           child: MyTextField(
-                        label: 'End Surah',
+                        controller: _ayatAwal,
+                        label: 'Ayat Awal',
                         icon: downwardIcon,
                       )),
                       SizedBox(width: 40),
                       Expanded(
                         child: MyTextField(
-                          label: 'End Ayat',
+                          controller: _ayatAkhir,
+                          label: 'Ayat Akhir',
                           icon: downwardIcon,
                         ),
                       ),
@@ -96,8 +139,9 @@ class Create_Hafalan extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   MyTextField(
-                    label: 'Description',
-                    minLines: 3,
+                    controller: _keterangan,
+                    label: 'Keterangan',
+                    minLines: 1,
                     maxLines: 3,
                   ),
                   SizedBox(height: 20),
@@ -117,19 +161,23 @@ class Create_Hafalan extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Container(
-                    child: Text(
-                      'Create Task',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18),
-                    ),
                     alignment: Alignment.center,
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
                     width: width - 40,
                     decoration: BoxDecoration(
                       color: LightColors.kBlue,
                       borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: GestureDetector(
+                      child:
+                    Text(
+                      'Upload Hafalan',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16),
+                    ),
+                    onTap: () => simpanData(),  
                     ),
                   ),
                 ],
@@ -138,6 +186,7 @@ class Create_Hafalan extends StatelessWidget {
         ]
       ),
     )]
+    ),
     );
   }
 }

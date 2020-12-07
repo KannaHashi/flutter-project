@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    color: LightColors.kDarkYellow,
+                    // color: LightColors.kDarkYellow,
                   ),
                   child: TopContainer(
                   height: 150,
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                                 children: <Widget>[
                                   Container(
                                     child: Text(
-                                      'Nanoka',
+                                      'Admin',
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                         fontSize: 22.0,
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'kannayama116@gmail.com',
+                                      'admin@gmail.com',
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                         fontSize: 10.0,
@@ -94,27 +94,27 @@ class _HomeState extends State<Home> {
                       ]),
                 ),
                 ),
-                Container(
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: LightColors.kDarkYellow,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(60.0),
-                      bottomLeft: Radius.circular(60.0),
-                    ),
-                    boxShadow: [
-                      BoxShadow(  
-                        color: LightColors.kDarkYellow.withOpacity(0.5),
-                        spreadRadius: 3,
-                        blurRadius: 4,
-                        offset: Offset(0, 0), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Row(
+                // Container(
+                //   height: 20,
+                //   decoration: BoxDecoration(
+                //     color: LightColors.kDarkYellow,
+                //     borderRadius: BorderRadius.only(
+                //       bottomRight: Radius.circular(60.0),
+                //       bottomLeft: Radius.circular(60.0),
+                //     ),
+                //     boxShadow: [
+                //       BoxShadow(  
+                //         color: LightColors.kDarkYellow.withOpacity(0.5),
+                //         spreadRadius: 3,
+                //         blurRadius: 4,
+                //         offset: Offset(0, 0), // changes position of shadow
+                //       ),
+                //     ],
+                //   ),
+                //   child: Row(
 
-                  ),
-                ),
+                //   ),
+                // ),
                 Container(
                   child: SingleChildScrollView(
                   child: Column(
@@ -132,15 +132,15 @@ class _HomeState extends State<Home> {
                                 subheading('Recent Setoran'),
                                 RaisedButton(
                                 color: Colors.greenAccent,
-                                child: Text('Login', style: TextStyle(color: Colors.white),),
+                                child: Text('Send Email', style: TextStyle(color: Colors.white),),
                                   onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                                   sendMail();                         
                                 })
                               ],
                             ),
                             SizedBox(height: 15.0),
                             TaskColumn(
-                              icon: Icons.alarm,
+                              icon: Icons.check_circle_outline,
                               iconBackgroundColor: LightColors.kRed,
                               title: 'Nanokaaa',
                               subtitle: 'An-Najm, ayat 17 - 59',
@@ -149,7 +149,7 @@ class _HomeState extends State<Home> {
                               height: 15.0,
                             ),
                             TaskColumn(
-                              icon: Icons.blur_circular,
+                              icon: Icons.check_circle_outline,
                               iconBackgroundColor: LightColors.kDarkYellow,
                               title: 'Hanif Lathan',
                               subtitle: 'At-Thur, ayat 1 - 25',
@@ -170,11 +170,7 @@ class _HomeState extends State<Home> {
                             horizontal: 20.0, vertical: 10.0),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            subheading('Data'),
-                            SizedBox(height: 5.0),
-                          ],
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,                         
                         ),
                       ),
                     ],

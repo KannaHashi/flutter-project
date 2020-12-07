@@ -15,6 +15,26 @@ class _List_siswaState extends State<List_siswa> {
       });
     });
   }
+
+  void hapusSiswa(String id) async{
+    var hapus = await deleteSiswa(id);
+
+    AlertDialog alertDialog = AlertDialog(
+      content: Container(
+        height: 100.0,
+        child: Column(
+          children: <Widget>[
+            Text("Delete Post ${hapus}"),
+            RaisedButton(
+                child: Text("OK"),
+                onPressed: () =>  Navigator.pop(context)
+            )
+          ],
+        ),
+      ),
+    );
+    showDialog(context: context,child: alertDialog);
+  }
   @override
     void initState() {
     // TODO: implement initState
@@ -68,19 +88,17 @@ class _List_siswaState extends State<List_siswa> {
                               SizedBox(height: 8.0,),
                               Text(dataSiswa[i].email, style: new TextStyle(fontSize: 12.0, color: Colors.white70),),
                               SizedBox(height: 10.0,),
-                              Row(children: <Widget>[
-                                Column(children: <Widget>[
-                                  Text('2342', style: TextStyle(fontSize: 12.0, color: Colors.white)),
-                                  Text('Popularity', style: TextStyle(fontSize: 10.0, color: Colors.white)),
-                                ],),
-                                Column(children: <Widget>[
-                                  Text('2342', style: TextStyle(fontSize: 12.0, color: Colors.white)),
-                                  Text('Like', style: TextStyle(fontSize: 10.0, color: Colors.white)),
-                                ],),
-                                Column(children: <Widget>[
-                                  Text('2342', style: TextStyle(fontSize: 12.0, color: Colors.white)),
-                                  Text('Followed', style: TextStyle(fontSize: 10.0, color: Colors.white)),
-                                ],)
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[                                                                                                                             
+                                       
+                                  RaisedButton(
+                                    color: Colors.red,
+                                    onPressed: (){
+                                      hapusSiswa(dataSiswa[i].id.toString());
+                                    },
+                                child: Text('Delete', style: TextStyle(fontSize: 12.0, color: Colors.white)), 
+                              ),                             
                               ],)
                             ],)),
                           Padding(padding: EdgeInsets.only(left: 10.0, right: 10.0),
@@ -88,7 +106,7 @@ class _List_siswaState extends State<List_siswa> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(dataSiswa[i].id.toString(), style: new TextStyle(fontSize: 30.0, color: Colors.white70),),
-                                  Text('Ranking', style: new TextStyle(fontSize: 14.0, color: Colors.white70),),
+                                  Text('ID', style: new TextStyle(fontSize: 14.0, color: Colors.white70),),
                                 ],))
 
                         ],),

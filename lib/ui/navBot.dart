@@ -116,14 +116,14 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder:(context){
-                return Create_Siswa();
+                return CreateHafalan();
               }
             ));
           }, 
         tooltip: 'Increment',
         child: new Icon(Icons.add),
       ),
-
+      
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         items: <Widget>[

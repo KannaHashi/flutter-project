@@ -70,3 +70,20 @@ Future getOneSiswa(String id) async {
   }
 }
 
+Future deleteSiswa(String id) async {
+  try { //
+    var url = "https://flutter-project.herokuapp.com/api/siswa/${id}";
+    var hasil = await http.delete(url);
+    if (hasil.statusCode == 200) {
+      print("Sukses Delete Data");
+      return "ok";
+    } else {
+      print("Gagal Delete Data");
+      return "fail";
+    }
+  }
+  catch (e) {
+    print ("Error pada catch $e");
+  }
+}
+
